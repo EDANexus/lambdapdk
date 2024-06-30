@@ -70,9 +70,14 @@ def setup(chip):
 
     # filler
     lib.add('asic', 'cells', 'filler', ["sg13g2_fill_1",
-                                        "sg13g2_fill_2",
-                                        "sg13g2_decap_4",
-                                        "sg13g2_decap_8"])
+                                        "sg13g2_fill_2"])
+
+    # decap
+    lib.add('asic', 'cells', 'decap', ["sg13g2_decap_4",
+                                       "sg13g2_decap_8"])
+
+    # antenna
+    lib.add('asic', 'cells', 'decap', ["sg13g2_antennanp"])
 
     # Stupid small cells
     lib.add('asic', 'cells', 'dontuse', ["sg13g2_antennanp",

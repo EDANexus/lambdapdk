@@ -8,7 +8,7 @@ pdk_rev = '87764498e0f2118c69396b16a46ce91b46305341'
 
 
 def register_ihp130_data_source(chip):
-    chip.register_package_source(
+    chip.register_source(
         'ihp130',
         path='git+https://github.com/IHP-GmbH/IHP-Open-PDK',
         ref=pdk_rev)
@@ -47,7 +47,7 @@ def setup(chip):
     * https://github.com/google/skywater-pdk
     '''
 
-    foundry = 'ihp'
+    foundry = 'Leibniz-Institut für innovative Mikroelektronik'
     process = 'ihp130'
     stackup = '5M2TL'
 
@@ -71,8 +71,7 @@ def setup(chip):
     pdk.set('pdk', process, 'stackup', stackup)
     pdk.set('pdk', process, 'wafersize', wafersize)
     pdk.set('pdk', process, 'edgemargin', edgemargin)
-    pdk.set('pdk', process, 'hscribe', hscribe)
-    pdk.set('pdk', process, 'vscribe', vscribe)
+    pdk.set('pdk', process, 'scribe', (hscribe, vscribe))
 
     # APR Setup
     # TODO: remove libtype
